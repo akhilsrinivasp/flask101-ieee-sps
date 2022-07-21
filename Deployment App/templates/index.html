@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; text-align: center;}
+        
+        table{
+            margin-top: 20px;
+        }
+            table, th, td {
+               padding: 20px;
+               font-size: large;
+            }
+            th{
+                background-color: #4CAF50;
+                color: white;
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>Hello, Welcome to the Notes Taking App!</h1>
+
+<!-- Form for adding Items  -->
+    <form method="POST" action="" autocomplete="off">
+        <input class="form-control-sm" type="text" name="name" placeholder="Add Item">
+        <input class="form-control-sm" type="number" name="quantity" placeholder="Quantity">
+        <input class="form-control-sm" type="text" name="note" placeholder="Add Note">
+        <input class="btn" type="submit" name="submit" value="Add Item">
+    </form>
+    {% for item in items %}
+        <table align="center" spacing="10px" cellspacing="10%">
+            <tr>
+                <th>Name</th>   
+                <th>Quantity</th>
+                <th>Note</th>
+                <th>Delete</th>
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.note }}</td>
+                <td><a href="delete/{{item['id']}}"> Delete Item</a></td>
+            </tr>
+        </table>
+    {% endfor %}
+</body> 
+</html>
